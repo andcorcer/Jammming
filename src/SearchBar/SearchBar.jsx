@@ -11,6 +11,7 @@ function SearchBar({ onSearch }) {
   const handleSearch = (event) => {
     event.preventDefault();
     onSearch(input);
+    setInput("");
   };
 
   return (

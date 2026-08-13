@@ -7,13 +7,14 @@ import { useState } from "react";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName] = useState("NewPlaylist");
+  const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   // Function Handlers
   const handleSearch = async (term) => {
     const tracksReturned = await Spotify.search(term);
     setSearchResults(tracksReturned);
+    
   }
 
   const handleAddTrack = (track) => {
@@ -52,7 +53,7 @@ function App() {
         onNameChange={handleUpdatePlaylistName}
         onSave={handleSavePlaylist}
         playlistName={playlistName}
-        playlistTracks={playListTracks}
+        playlistTracks={playlistTracks}
       />
     </>
   );
