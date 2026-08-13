@@ -1,24 +1,24 @@
 import React from 'react';
 import './Track.css';
 
-function Track(props) {
+function Track({ onAdd, onRemove, isRemoval, track}) {
   const addTrack = () => {
-    props.onAdd(props.track);
+    onAdd(track);
   };
 
   const removeTrack = () => {
-    props.onRemove(props.track.id);
+    onRemove(track.id);
   };
 
   const renderAction = () => {
-    return props.isRemoval ? <button className="Track-action" onClick={removeTrack}>-</button> : <button className="Track-action" onClick={addTrack}>+</button>;
+    return isRemoval ? <button className="Track-action" onClick={removeTrack}>-</button> : <button className="Track-action" onClick={addTrack}>+</button>;
   };
 
   return (
     <div className="Track">
       <div className="Track-information">
-        <h3>{props.track.name}</h3>
-        <p>{props.track.artist} | {props.track.album}</p>
+        <h3>{track.name}</h3>
+        <p>{track.artist} | {track.album}</p>
       </div>
       {renderAction()}
     </div>
